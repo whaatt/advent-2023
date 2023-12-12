@@ -3,7 +3,6 @@
 # flake8: noqa
 
 from collections import defaultdict
-from functools import cache
 
 input_value = open("input.txt", "r").read()
 lines = input_value.split("\n")
