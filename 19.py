@@ -2,9 +2,6 @@
 # mypy: ignore-errors
 # flake8: noqa
 
-from collections import deque
-
-
 input_value = open("input.txt", "r").read()
 pieces = input_value.split("\n\n")
 
@@ -25,22 +22,23 @@ for i in range(len(workflows)):
         steps[j] = step
     workflow_map[name] = steps
 
-# total = 0
-# parts_entries = pieces[1].split("\n")
-# for parts in parts_entries:
-#     parts = parts[1:-1].split(",")
-#     for part in parts:
-#         exec(part)
-#     current = "in"
-#     while current not in {"A", "R"}:
-#         workflow = workflow_map[current]
-#         for step in workflow:
-#             if eval(step[0]):
-#                 current = step[1]
-#                 break
-#     if current == "A":
-#         total += eval("x + m + a + s")
+total = 0
+parts_entries = pieces[1].split("\n")
+for parts in parts_entries:
+    parts = parts[1:-1].split(",")
+    for part in parts:
+        exec(part)
+    current = "in"
+    while current not in {"A", "R"}:
+        workflow = workflow_map[current]
+        for step in workflow:
+            if eval(step[0]):
+                current = step[1]
+                break
+    if current == "A":
+        total += eval("x + m + a + s")
 
+# Part 1:
 # print(total)
 
 ranges_initial = tuple(((1, 4000),) for _ in "xmas")
