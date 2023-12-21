@@ -2,7 +2,7 @@
 # mypy: ignore-errors
 # flake8: noqa
 
-from collections import defaultdict, deque
+from collections import deque
 import math
 
 
